@@ -138,11 +138,16 @@ async function fglayer(scene) {
   buttonNormal.addEventListener("click", (evt) => {
     /* eslint-disable no-console */
     console.log("button clicked");
-    player.setname("stand1");
-    fglayer.removeAllChildren()
+    if (player.name == "stand0") {
+      player.setname("stand1");
+    } else {
+      player.setname("stand2");
+    }
+    //fglayer.removeAllChildren()
   });
 }
 
+/*角色类*/
 function Player (name) {
   this.sprite = new Sprite(name+"1.png")
   this.i = 0;
