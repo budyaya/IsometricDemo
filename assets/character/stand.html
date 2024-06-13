@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>demo</title>
+    <link href="../../css/bootstrap-grid.min.css" rel="stylesheet" />
+    <script src="../../core/spritejs.js"></script>
+    <script src="../../core/fglayer.js"></script>
+    <style>
+      #stage {
+        min-width: 1024px;
+        min-height: 768px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div id="stage"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const { Scene, Path, Sprite, Label, Group  } = spritejs;
+    const container = document.getElementById("stage");
+    const scene = new Scene({
+      container,
+    });
+    const birdsJsonUrl = "stand.json";
+    const birdsRes = "stand.png";
+
+    (async function () {
+      await scene.preload([birdsRes, birdsJsonUrl]);
+      // 前景
+      fglayer(scene);
+    })();
+
+  </script>
+</html>
