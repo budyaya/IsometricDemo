@@ -1,0 +1,26 @@
+{
+  "name": "isometricdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev2": "webpack --mode development --watch",
+    "dev": "npx webpack serve",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "html-webpack-plugin": "^5.6.0",
+    "spritejs": "^3.8.3",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.92.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2"
+  }
+}
