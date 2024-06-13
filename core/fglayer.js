@@ -2,8 +2,8 @@ async function fglayer(scene) {
   //const layer = scene.layer();
   const layer = scene.layer();
   layer.canvas.style.backgroundColor = "#1EAC61";
-  const player = new Player("stand")
-  layer.append(player);
+  const player = new Player("stand0")
+  layer.append(player.sprite);
 
   const fglayer = scene.layer("fglayer");
   setInterval(() => {
@@ -138,25 +138,28 @@ async function fglayer(scene) {
   buttonNormal.addEventListener("click", (evt) => {
     /* eslint-disable no-console */
     console.log("button clicked");
+    player.setname("stand1");
     fglayer.removeAllChildren()
   });
 }
 
-class Player extends Sprite {
-  constructor(name) {
-    super(name+"01.png");
-    this.i = 0;
-    this.name = name;
-    this.attr({
-      anchor: [0, 0],
-      size: [250, 220],
-      zIndex: 200,
-    });
-  }
- 
-  runloop() {
-    this.i = ((this.i % 8) + 1);
-    this.attributes.texture = "stand0" + this.i + ".png";
-  }
+function Player (name) {
+  this.sprite = new Sprite(name+"1.png")
+  this.i = 0;
+  this.name = name;
+  this.sprite.attr({
+    anchor: [0, 0],
+    size: [250, 220],
+    zIndex: 200,
+  });
+  this.i = 0;
+  this.name = name;
 }
 
+Player.prototype.runloop = function () {
+  this.i = ((this.i % 8) + 1);
+  this.sprite.attributes.texture = this.name + this.i + ".png";
+}
+Player.prototype.setname = function (name) {
+  this.name = name;
+}
