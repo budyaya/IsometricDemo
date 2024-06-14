@@ -16,7 +16,7 @@ const birdsRes = "assets/character/stand.png";
   // 网格
   const bglayer = scene.layer("bglayer");
   bglayer.canvas.style.backgroundColor = "#1EAC61";
-  bglayer.append(new Grid(100, 50));
+  bglayer.append(new Grid(30, 20));
   
   // 角色
   const layer = scene.layer();
