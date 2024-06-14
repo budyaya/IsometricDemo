@@ -16,16 +16,18 @@ const birdsRes = "assets/character/stand.png";
   // 网格
   const bglayer = scene.layer("bglayer");
   bglayer.canvas.style.backgroundColor = "#1EAC61";
-  bglayer.append(new Grid(30, 20));
+  const grid = new Grid()
+  grid.Gen(30, 20)
+  bglayer.append(grid);
   
   // 角色
   const layer = scene.layer();
   const player = new Player("stand0");
   layer.append(player);
-  layer.timeline.playbackRate = 1;
-  layer.tick((t, p) => {
-    //player.runloop();
-  });
+  // layer.timeline.playbackRate = 1;
+  // layer.tick((t, p) => {
+  //   //player.runloop();
+  // });
 
   // 前景
   const fglayer = scene.layer("fglayer");
