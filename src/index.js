@@ -1,7 +1,7 @@
 import { Scene, Path, Sprite, Label, Group } from "spritejs";
 import { Player } from "./core/player.ts";
 import { Keyboard } from "./core/keyboard.ts";
-import { Grid } from "./grid.ts";
+import { Grid } from "./core/grid.ts";
 
 const container = document.getElementById("stage");
 const scene = new Scene({
@@ -13,17 +13,21 @@ const birdsRes = "assets/character/stand.png";
 (async function () {
   await scene.preload([birdsRes, birdsJsonUrl]);
 
+  // 角色
+  const layer = scene.layer();
+  layer.canvas.style.backgroundColor = "#1EAC61";
+  
+  const player = new Player("stand0");
+  player.attr({
+    pos: [512, 384],
+  });
+  layer.append(player);
+
   // 网格
   const bglayer = scene.layer("bglayer");
-  bglayer.canvas.style.backgroundColor = "#1EAC61";
   const grid = new Grid()
   grid.Gen(30, 20)
   bglayer.append(grid);
-  
-  // 角色
-  const layer = scene.layer();
-  const player = new Player("stand0");
-  layer.append(player);
   // layer.timeline.playbackRate = 1;
   // layer.tick((t, p) => {
   //   //player.runloop();
