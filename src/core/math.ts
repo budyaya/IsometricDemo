@@ -20,7 +20,7 @@ export class IsoMath {
     this.angleSin = Math.sin(this.ratio);
   }
 
-  Convert(x: number, y: number, z: number) {
+  public Convert(x: number, y: number, z: number) {
     const cartX = (x - z) * this.angleCos;
     const cartY = y + (x + z) * this.angleSin;
     const targX = cartX + this.origin[0];
