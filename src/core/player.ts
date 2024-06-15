@@ -5,7 +5,7 @@ export class Player extends Sprite {
   private i: number;
   private _name: string;
   constructor(name: string) {
-    super(name + "1.png");
+    super(name + "0.png");
     this.i = 0;
     this._name = name;
     this.attr({
@@ -28,7 +28,7 @@ export class Player extends Sprite {
   }
 
   public runloop() {
-    this.i = (this.i % 8) + 1;
+    this.i = (this.i+1) % 8;
     this.attributes.texture = this.name + this.i + ".png";
   }
 }

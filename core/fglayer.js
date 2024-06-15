@@ -149,7 +149,7 @@ async function fglayer(scene) {
 
 /*角色类*/
 function Player (name) {
-  this.sprite = new Sprite(name+"1.png")
+  this.sprite = new Sprite(name+"0.png")
   this.i = 0;
   this.name = name;
   this.sprite.attr({
@@ -157,12 +157,10 @@ function Player (name) {
     size: [250, 220],
     zIndex: 200,
   });
-  this.i = 0;
-  this.name = name;
 }
 
 Player.prototype.runloop = function () {
-  this.i = ((this.i % 8) + 1);
+  this.i = ((this.i+1) % 8);
   this.sprite.attributes.texture = this.name + this.i + ".png";
 }
 Player.prototype.setname = function (name) {
