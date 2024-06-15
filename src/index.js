@@ -7,11 +7,10 @@ const container = document.getElementById("stage");
 const scene = new Scene({
   container,
 });
-const birdsJsonUrl = "assets/character/stand.json";
-const birdsRes = "assets/character/stand.png";
 
 (async function () {
-  await scene.preload([birdsRes, birdsJsonUrl]);
+  await scene.preload(["assets/character/stand.png", "assets/character/stand.json"]);
+  await scene.preload(["assets/character/walk.png", "assets/character/walk.json"]);
 
   // 角色
   const layer = scene.layer();
@@ -27,6 +26,18 @@ const birdsRes = "assets/character/stand.png";
   const bglayer = scene.layer("bglayer");
   const grid = new Grid()
   grid.Gen(30, 20)
+
+  grid.addEventListener("click", (evt) => {
+      console.log("grid clicked", evt.layerX, evt.layerY, bglayer.toLocalPos(evt.layerX, evt.layerY));
+      player.walk(evt.layerX, evt.layerY);
+      // player.animate([
+      //   {pos: 0, y: 76},
+      // ], {
+      //   duration: 100,
+      //   iterations: 1,
+      //   easing: 'step-end'
+      // }
+  });
   bglayer.append(grid);
   // layer.timeline.playbackRate = 1;
   // layer.tick((t, p) => {
