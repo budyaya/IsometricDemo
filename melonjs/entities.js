@@ -33,10 +33,10 @@ class PlayerEntity extends me.Sprite {
     me.input.bindKey(me.input.KEY.DOWN, "down");
 
     // define an additional basic walking animation
-    this.addAnimation("walk_left", [8, 9, 10, 11, 12, 13, 14, 15]);
-    this.addAnimation("walk_right", [16, 17, 18, 19, 20, 21, 22, 23]);
-    this.addAnimation("walk_up", [24, 25, 26, 27, 28, 29, 30, 31]);
     this.addAnimation("walk_down", [0, 1, 2, 3, 4, 5, 6, 7]);
+    this.addAnimation("walk_left", [8, 9, 10, 11, 12, 13, 14, 15]);
+    this.addAnimation("walk_up", [16, 17, 18, 19, 20, 21, 22, 23]);
+    this.addAnimation("walk_right", [24, 25, 26, 27, 28, 29, 30, 31]);
     // set default one
     this.setCurrentAnimation("walk_down");
   }
