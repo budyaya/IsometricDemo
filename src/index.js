@@ -1,4 +1,6 @@
 import { Scene, Path, Sprite, Label, Group } from "spritejs";
+const { Camera, Mesh3d, shaders } = 'sprite-extend-3d';
+
 import { Player } from "./core/player.ts";
 import { Keyboard } from "./core/keyboard.ts";
 import { Grid } from "./core/grid.ts";
@@ -9,13 +11,54 @@ const scene = new Scene({
 });
 
 (async function () {
-  await scene.preload(["assets/character/stand.png", "assets/character/stand.json"]);
-  await scene.preload(["assets/character/walk.png", "assets/character/walk.json"]);
+  await scene.preload([
+    "assets/character/stand.png",
+    "assets/character/stand.json",
+  ]);
+  await scene.preload([
+    "assets/character/walk.png",
+    "assets/character/walk.json",
+  ]);
+
+  const layer3d = scene.layer3d("layer3d", {
+    camera: {
+      fov: 35,
+    },
+  });
+
+  layer3d.camera.attributes.pos = [5, 4, 10];
+  layer3d.setOrbit();
+
+  const light = new Camera(layer3d.gl, {
+    left: -3,
+    right: 3,
+    bottom: -3,
+    top: 3,
+    near: 1,
+    far: 20,
+  });
+  light.attributes.pos = [3, 10, 3];
+  light.lookAt([0, 0, 0]);
+
+  const texture = layer3d.createTexture(
+    "assets/3d/t01155feb9a795bdd05.jpg"
+  );
+  const model = layer3d.loadModel(
+    "assets/3d/0baccc5ad3cd5b8c.json"
+  );
+  const program = layer3d.createProgram({
+    ...shaders.TEXTURE_WITH_SHADOW,
+    cullFace: null,
+    texture,
+  });
+  const plane = new Mesh3d(program, { model });
+  window.plane = plane;
+  layer3d.append(plane);
 
   // 角色
   const layer = scene.layer();
   layer.canvas.style.backgroundColor = "#1EAC61";
-  
+
   const player = new Player("stand0");
   player.attr({
     pos: [512, 384],
@@ -24,19 +67,24 @@ const scene = new Scene({
 
   // 网格
   const bglayer = scene.layer("bglayer");
-  const grid = new Grid()
-  grid.Gen(30, 20)
+  const grid = new Grid();
+  grid.Gen(30, 20);
 
   grid.addEventListener("click", (evt) => {
-      console.log("grid clicked", evt.layerX, evt.layerY, bglayer.toLocalPos(evt.layerX, evt.layerY));
-      player.walk(evt.layerX, evt.layerY);
-      // player.animate([
-      //   {pos: 0, y: 76},
-      // ], {
-      //   duration: 100,
-      //   iterations: 1,
-      //   easing: 'step-end'
-      // }
+    console.log(
+      "grid clicked",
+      evt.layerX,
+      evt.layerY,
+      bglayer.toLocalPos(evt.layerX, evt.layerY)
+    );
+    player.walk(evt.layerX, evt.layerY);
+    // player.animate([
+    //   {pos: 0, y: 76},
+    // ], {
+    //   duration: 100,
+    //   iterations: 1,
+    //   easing: 'step-end'
+    // }
   });
   bglayer.append(grid);
   // layer.timeline.playbackRate = 1;
@@ -46,6 +94,7 @@ const scene = new Scene({
 
   // 前景
   const fglayer = scene.layer("fglayer");
+
   // 键盘
   const keyboard = new Keyboard(fglayer);
 
