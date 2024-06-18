@@ -11,49 +11,18 @@ const scene = new Scene({
 });
 
 (async function () {
+  // await scene.preload([
+  //   "assets/character/stand.png",
+  //   "assets/character/stand.json",
+  // ]);
+  // await scene.preload([
+  //   "assets/character/walk.png",
+  //   "assets/character/walk.json",
+  // ]);
   await scene.preload([
-    "assets/character/stand.png",
-    "assets/character/stand.json",
+    "assets/character/wukong.png",
+    "assets/character/wukong.json",
   ]);
-  await scene.preload([
-    "assets/character/walk.png",
-    "assets/character/walk.json",
-  ]);
-
-  const layer3d = scene.layer3d("layer3d", {
-    camera: {
-      fov: 35,
-    },
-  });
-
-  layer3d.camera.attributes.pos = [5, 4, 10];
-  layer3d.setOrbit();
-
-  const light = new Camera(layer3d.gl, {
-    left: -3,
-    right: 3,
-    bottom: -3,
-    top: 3,
-    near: 1,
-    far: 20,
-  });
-  light.attributes.pos = [3, 10, 3];
-  light.lookAt([0, 0, 0]);
-
-  const texture = layer3d.createTexture(
-    "assets/3d/t01155feb9a795bdd05.jpg"
-  );
-  const model = layer3d.loadModel(
-    "assets/3d/0baccc5ad3cd5b8c.json"
-  );
-  const program = layer3d.createProgram({
-    ...shaders.TEXTURE_WITH_SHADOW,
-    cullFace: null,
-    texture,
-  });
-  const plane = new Mesh3d(program, { model });
-  window.plane = plane;
-  layer3d.append(plane);
 
   // 角色
   const layer = scene.layer();
