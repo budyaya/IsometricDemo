@@ -3,6 +3,8 @@ package meta
 import (
 	"encoding/json"
 	"fmt"
+	"log"
+	"os"
 )
 
 type MetaInfo struct {
@@ -31,12 +33,12 @@ type Png struct {
 }
 
 type Meta struct {
-	App     string `json:"app"`
-	Version string `json:"version"`
-	Image   string `json:"image"`
-	Format  string `json:"format"`
-	Size    Size   `json:"size"`
-	Scale   string `json:"scale"`
+	App     string      `json:"app"`
+	Version string      `json:"version"`
+	Image   string      `json:"image"`
+	Format  string      `json:"format"`
+	Size    Size        `json:"size"`
+	Scale   json.Number `json:"scale"`
 }
 
 func Generate(name string, num int, width int, height int) {
@@ -80,4 +82,61 @@ func Generate(name string, num int, width int, height int) {
 	}
 	b, err := json.MarshalIndent(&info, "", "  ")
 	fmt.Println(string(b), err)
+}
+
+type MetaInfoArray struct {
+	Frames FrameSlice `json:"frames"`
+	Meta   Meta       `json:"meta"`
+}
+type Pivot struct {
+	X float64 `json:"x"`
+	Y float64 `json:"y"`
+}
+type Frames struct {
+	Filename         string    `json:"filename"`
+	Frame            FrameSize `json:"frame"`
+	Rotated          bool      `json:"rotated"`
+	Trimmed          bool      `json:"trimmed"`
+	SpriteSourceSize FrameSize `json:"spriteSourceSize"`
+	SourceSize       Size      `json:"sourceSize"`
+	Pivot            Pivot     `json:"pivot"`
+}
+
+type FrameSlice []Frames
+
+func (p FrameSlice) Len() int           { return len(p) }
+func (p FrameSlice) Less(i, j int) bool { return p[i].Filename < p[j].Filename }
+func (p FrameSlice) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+
+func Convert(filename string, content []byte) {
+	info := MetaInfo{}
+	err := json.Unmarshal(content, &info)
+	if err != nil {
+		log.Panic(err)
+		return
+	}
+	info2 := MetaInfoArray{
+		Frames: make([]Frames, 0),
+		Meta:   info.Meta,
+	}
+	info2.Meta.App = "melonJS"
+	for k, v := range info.Frames {
+		info2.Frames = append(info2.Frames, Frames{
+			Filename:         k,
+			Frame:            v.Frame,
+			Rotated:          v.Rotated,
+			Trimmed:          v.Trimmed,
+			SpriteSourceSize: v.SpriteSourceSize,
+			SourceSize:       v.SourceSize,
+			Pivot:            Pivot{X: 0.5, Y: 0.5},
+		})
+	}
+
+	b, err := json.MarshalIndent(&info2, "", "  ")
+	fmt.Println(string(b), err)
+
+	err = os.WriteFile("convert-"+filename, b, 0644)
+	if err != nil {
+		panic(err)
+	}
 }

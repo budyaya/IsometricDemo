@@ -1,0 +1,615 @@
+{
+  "frames": [
+    {
+      "filename": "walk03.png",
+      "frame": {
+        "x": 765,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk04.png",
+      "frame": {
+        "x": 1020,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk10.png",
+      "frame": {
+        "x": 0,
+        "y": 199,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk14.png",
+      "frame": {
+        "x": 1020,
+        "y": 199,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk31.png",
+      "frame": {
+        "x": 255,
+        "y": 597,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk01.png",
+      "frame": {
+        "x": 255,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk05.png",
+      "frame": {
+        "x": 1275,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk11.png",
+      "frame": {
+        "x": 255,
+        "y": 199,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk21.png",
+      "frame": {
+        "x": 255,
+        "y": 398,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk23.png",
+      "frame": {
+        "x": 765,
+        "y": 398,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk00.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk02.png",
+      "frame": {
+        "x": 510,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk13.png",
+      "frame": {
+        "x": 765,
+        "y": 199,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk15.png",
+      "frame": {
+        "x": 1275,
+        "y": 199,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk20.png",
+      "frame": {
+        "x": 0,
+        "y": 398,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk22.png",
+      "frame": {
+        "x": 510,
+        "y": 398,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk30.png",
+      "frame": {
+        "x": 0,
+        "y": 597,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk32.png",
+      "frame": {
+        "x": 510,
+        "y": 597,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk33.png",
+      "frame": {
+        "x": 765,
+        "y": 597,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk35.png",
+      "frame": {
+        "x": 1275,
+        "y": 597,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk12.png",
+      "frame": {
+        "x": 510,
+        "y": 199,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk24.png",
+      "frame": {
+        "x": 1020,
+        "y": 398,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk25.png",
+      "frame": {
+        "x": 1275,
+        "y": 398,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    {
+      "filename": "walk34.png",
+      "frame": {
+        "x": 1020,
+        "y": 597,
+        "w": 255,
+        "h": 199
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 255,
+        "h": 199
+      },
+      "sourceSize": {
+        "w": 255,
+        "h": 199
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  ],
+  "meta": {
+    "app": "melonJS",
+    "version": "1.0",
+    "image": "walk",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1530,
+      "h": 796
+    },
+    "scale": 1
+  }
+}

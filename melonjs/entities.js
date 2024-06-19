@@ -4,19 +4,21 @@ import * as me from "melonjs";
 class PlayerEntity extends me.Sprite {
   constructor(x, y, settings) {
     // call the constructor
+    let texture = new me.TextureAtlas([me.loader.getJSON("stand"), me.loader.getJSON("walk")]);
     super(
       x,
       y,
       Object.assign(
         {
-          image: "stand",
-          framewidth: 250,
-          frameheight: 220,
+          image: texture,
+          region : "stand",
+          // image: "stand",
+          // framewidth: 250,
+          // frameheight: 220,
         },
         settings
       )
     );
-
     // add a physic body with a diamond as a body shape
     this.body = new me.Body(this, new me.Rect(16, 16, 16, 16).toIso());
     // walking & jumping speed
@@ -33,12 +35,66 @@ class PlayerEntity extends me.Sprite {
     me.input.bindKey(me.input.KEY.DOWN, "down");
 
     // define an additional basic walking animation
-    this.addAnimation("walk_down", [0, 1, 2, 3, 4, 5, 6, 7]);
-    this.addAnimation("walk_left", [8, 9, 10, 11, 12, 13, 14, 15]);
-    this.addAnimation("walk_up", [16, 17, 18, 19, 20, 21, 22, 23]);
-    this.addAnimation("walk_right", [24, 25, 26, 27, 28, 29, 30, 31]);
+    let c = this.addAnimation("stand_down", [0, 1, 2, 3, 4, 5, 6, 7]);
+    let name = "stand_down";
+    let index = [0, 1, 2, 3, 4, 5, 6, 7];
+    let animationspeed = 200;
+    let counter = 0;
+    console.log("-------------addAnimation", c, this.textureAtlas, texture instanceof me.TextureAtlas);
+            // set each frame configuration (offset, size, etc..)
+            for (let i = 0, len = index.length; i < len; i++) {
+              let frame = index[i];
+              let frameObject;
+              if (typeof(frame) === "number" || typeof(frame) === "string") {
+                  frameObject = {
+                      name: frame,
+                      delay: animationspeed || this.animationspeed
+                  };
+              }
+              else {
+                  frameObject = frame;
+              }
+              let frameObjectName = frameObject.name;
+              
+    console.log("----------addAnimation", frameObjectName, typeof(frameObjectName), this.textureAtlas[frameObjectName]);
+              if (typeof(frameObjectName) === "number") {
+                  if (typeof (this.textureAtlas[frameObjectName]) !== "undefined") {
+                      // TODO: adding the cache source coordinates add undefined entries in webGL mode
+                      this.anim[name].frames[i] = Object.assign(
+                          {},
+                          this.textureAtlas[frameObjectName],
+                          frameObject
+                      );
+                      counter++;
+                  }
+              } else { // string
+                  if (this.source.getFormat().includes("Spritesheet")) {
+                      throw new Error(
+                          "string parameters for addAnimation are not allowed for standard spritesheet based Texture"
+                      );
+                  } else {
+                      this.anim[name].frames[i] = Object.assign(
+                          {},
+                          this.textureAtlas[this.atlasIndices[frameObjectName]],
+                          frameObject
+                      );
+                      counter++;
+                  }
+              }
+          }
+          console.log("----------addAnimation counter", counter);
+          this.anim[name].length = counter;
+    this.addAnimation("stand_left", [8, 9, 10, 11, 12, 13, 14, 15]);
+    this.addAnimation("stand_up", [16, 17, 18, 19, 20, 21, 22, 23]);
+    this.addAnimation("stand_right", [24, 25, 26, 27, 28, 29, 30, 31]);
+
+    this.addAnimation("walk_down", [32, 33, 34, 35, 36, 37]);
+    this.addAnimation("walk_left", [37, 38, 39, 40, 41, 42]);
+    this.addAnimation("walk_up", [43, 44, 45, 46, 47, 48]);
+    this.addAnimation("walk_right", [49, 50, 51, 52, 53, 54]);
+
     // set default one
-    this.setCurrentAnimation("walk_down");
+    this.setCurrentAnimation("stand_down");
   }
 
   /**

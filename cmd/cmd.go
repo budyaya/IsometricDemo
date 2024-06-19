@@ -27,6 +27,7 @@ var (
 func init() {
 	rootCmd.AddCommand(versionCmd)
 	rootCmd.AddCommand(metaCmd)
+	rootCmd.AddCommand(atlasCmd)
 }
 
 func Execute() {
