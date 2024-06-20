@@ -5,24 +5,17 @@
   </head>
   <body>
     <script type="module">
-      import stand from './stand.js';
-      import walk from './walk.js';
+      import {Player} from './player.js';
       // Create the application helper and add its render target to the page
       const app = new PIXI.Application();
       await app.init({ width: 640, height: 360 });
       document.body.appendChild(app.canvas);
 
+      const player = new Player();
+      await player.create();
+      app.stage.addChild(player);
+      player.stand();
 
-      const anim = await stand.create();
-      // play the animation on a loop
-      anim.play();
-      // add it to the stage to render
-      app.stage.addChild(anim);
-
-      const anim2 = await walk.create();
-      anim2.position.set(100, 0);
-      anim2.play();
-      app.stage.addChild(anim2);
     </script>
   </body>
 </html>
